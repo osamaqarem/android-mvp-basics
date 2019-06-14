@@ -1,14 +1,14 @@
-package com.example.learn.modules.base.mvp;
+package com.example.learn.modules.base;
 
 import net.grandcentrix.thirtyinch.TiView;
 
 public interface BaseMvp {
     interface View extends TiView {
 
-        // Implemented in BaseActivity
+        // Implemented in BaseActivity / BaseFragment
         void helloAgain();
 
-        // Implemented in only in MainViewActivity
+        // Implemented in only in MainViewActivity / FetchMessagesFragment
         void showText();
     }
 

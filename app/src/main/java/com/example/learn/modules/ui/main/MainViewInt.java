@@ -1,6 +1,6 @@
-package com.example.learn.modules.ui.MainView;
+package com.example.learn.modules.ui.main;
 
-import com.example.learn.modules.base.mvp.BaseMvp;
+import com.example.learn.modules.base.BaseMvp;
 
 import net.grandcentrix.thirtyinch.TiView;
 

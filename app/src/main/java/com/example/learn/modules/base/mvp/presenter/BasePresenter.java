@@ -1,6 +1,6 @@
 package com.example.learn.modules.base.mvp.presenter;
 
-import com.example.learn.modules.base.mvp.BaseMvp;
+import com.example.learn.modules.base.BaseMvp;
 
 import net.grandcentrix.thirtyinch.TiPresenter;
 

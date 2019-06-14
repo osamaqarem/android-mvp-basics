@@ -1,4 +1,4 @@
-package com.example.learn.modules.ui.MainView;
+package com.example.learn.modules.ui.main;
 
 import android.support.annotation.NonNull;
 

@@ -4,10 +4,6 @@ import com.example.learn.modules.base.BaseMvp;
 
 import net.grandcentrix.thirtyinch.TiPresenter;
 
-public class BasePresenter<V extends BaseMvp.View> extends TiPresenter<V> implements BaseMvp.Presenter{
+public class BasePresenter<V extends BaseMvp.View> extends TiPresenter<V> implements BaseMvp.Presenter {
 
-    @Override
-    public void helloWorld() {
-
-    }
 }

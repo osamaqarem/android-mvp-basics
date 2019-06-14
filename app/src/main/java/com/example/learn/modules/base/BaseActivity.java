@@ -6,7 +6,4 @@ import net.grandcentrix.thirtyinch.TiActivity;
 
 public abstract class BaseActivity<V extends BaseMvp.View, P extends BasePresenter<V>> extends TiActivity<P, V> implements BaseMvp.View {
 
-    @Override
-    public void helloAgain() {
-    }
 }

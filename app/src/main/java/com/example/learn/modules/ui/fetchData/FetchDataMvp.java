@@ -1,8 +1,8 @@
-package com.example.learn.modules.ui.fetchMessages;
+package com.example.learn.modules.ui.fetchData;
 
 import com.example.learn.modules.base.BaseMvp;
 
-public interface FetchMessagesMvp {
+public interface FetchDataMvp {
 
     interface View extends BaseMvp.View {
 
@@ -10,5 +10,7 @@ public interface FetchMessagesMvp {
 
     interface Presenter extends BaseMvp.Presenter {
 
+        // Fetch list of repos
+        void fetchRepos();
     }
 }

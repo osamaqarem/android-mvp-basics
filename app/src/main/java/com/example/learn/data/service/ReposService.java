@@ -1,5 +1,11 @@
 package com.example.learn.data.service;
 
+import android.database.Observable;
+
+import com.example.learn.data.dao.types.GithubResponseModel;
+
+import java.util.List;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -12,7 +18,8 @@ import retrofit2.http.Path;
  */
 public interface ReposService {
 
+    // The response model objects are generated using jsonschema2pojo.org
     @GET("users/{user}/repos")
-    Call<ResponseBody> listRepos(@Path("user") String user);
+    Call <List<GithubResponseModel>> listRepos(@Path("user") String user);
 }
 

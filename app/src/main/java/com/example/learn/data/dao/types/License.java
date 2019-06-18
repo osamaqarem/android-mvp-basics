@@ -4,23 +4,31 @@ package com.example.learn.data.dao.types;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import io.requery.Entity;
+import io.requery.Generated;
+import io.requery.Key;
+
+@Entity
 public class License {
 
+    @Generated
+    @Key
+    int id;
     @SerializedName("key")
     @Expose
-    private String key;
+    public String key;
     @SerializedName("name")
     @Expose
-    private String name;
+    public String name;
     @SerializedName("spdx_id")
     @Expose
-    private String spdxId;
+    public String spdxId;
     @SerializedName("url")
     @Expose
-    private String url;
+    public String url;
     @SerializedName("node_id")
     @Expose
-    private String nodeId;
+    public String nodeId;
 
     public String getKey() {
         return key;

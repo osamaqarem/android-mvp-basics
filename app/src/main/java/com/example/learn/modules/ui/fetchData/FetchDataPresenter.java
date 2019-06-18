@@ -2,7 +2,8 @@ package com.example.learn.modules.ui.fetchData;
 
 import android.util.Log;
 
-import com.example.learn.data.dao.types.GithubResponseModel;
+import com.example.learn.App;
+import com.example.learn.data.dao.types.GithubResponseModelEntity;
 import com.example.learn.data.service.ReposService;
 import com.example.learn.modules.base.mvp.presenter.BasePresenter;
 import com.example.learn.provider.rest.RestProvider;
@@ -17,10 +18,38 @@ import retrofit2.Retrofit;
 
 public class FetchDataPresenter extends BasePresenter<FetchDataMvp.View> implements FetchDataMvp.Presenter {
 
+    private void insertData(List<GithubResponseModelEntity> githubResponseModels) {
 
-    private static void logResult(List<GithubResponseModel> githubResponseModels) {
-        Log.d("response", "Inside the lambda");
+        // License and Owner must be entities. Getters and Setters for each must be set as well.
+        Disposable disposable = App.instance().getDataSource()
+                .upsert(githubResponseModels)
+                .toObservable()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(githubResponseModelEntities -> logResultFromDb(githubResponseModelEntities.iterator().next()));
+
+
+        // Select from existing data
+//        Disposable disposable = App.instance().getDataSource()
+//                .select(GithubResponseModelEntity.OWNER)
+//                .get()
+//                .observable()
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(result -> {
+//                    Log.d("db", "insertData: " + result);
+//                }, throwable -> {
+//                    throwable.printStackTrace();
+//                });
+
+
+        manageDisposable(disposable);
     }
+
+    private void logResultFromDb(GithubResponseModelEntity entity) {
+        Log.d("db", "Stored in DB. Model" + entity.getOwner());
+    }
+
 
     @Override
     public void fetchRepos() {
@@ -28,17 +57,17 @@ public class FetchDataPresenter extends BasePresenter<FetchDataMvp.View> impleme
         // Use retrofit to create the API
         Retrofit retrofit = RestProvider.getRetrofit();
 
-        ReposService reposServices = retrofit.create(ReposService.class);
-        
-        Observable<List<GithubResponseModel>> reposRequestRx = reposServices.listReposRx("osamaq");
+        ReposService reposService = retrofit.create(ReposService.class);
 
-        Disposable disposable = reposRequestRx
+        Observable<List<GithubResponseModelEntity>> reposRequestRxEntity = reposService.listReposRxEntity("osamaq");
+
+        Disposable disposable = reposRequestRxEntity
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(FetchDataPresenter::logResult, Throwable::printStackTrace
-                );
+                .subscribe(this::insertData, Throwable::printStackTrace);
 
         manageDisposable(disposable);
+
     }
 
 }

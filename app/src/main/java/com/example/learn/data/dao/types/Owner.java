@@ -4,62 +4,67 @@ package com.example.learn.data.dao.types;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import io.requery.Entity;
+import io.requery.Key;
+
+@Entity
 public class Owner {
 
     @SerializedName("login")
     @Expose
-    private String login;
+    public String login;
     @SerializedName("id")
     @Expose
-    private Integer id;
+    @Key
+    public Integer id;
     @SerializedName("node_id")
     @Expose
-    private String nodeId;
+    public String nodeId;
     @SerializedName("avatar_url")
     @Expose
-    private String avatarUrl;
+    public String avatarUrl;
     @SerializedName("gravatar_id")
     @Expose
-    private String gravatarId;
+    public String gravatarId;
     @SerializedName("url")
     @Expose
-    private String url;
+    public String url;
     @SerializedName("html_url")
     @Expose
-    private String htmlUrl;
+    public String htmlUrl;
     @SerializedName("followers_url")
     @Expose
-    private String followersUrl;
+    public String followersUrl;
     @SerializedName("following_url")
     @Expose
-    private String followingUrl;
+    public String followingUrl;
     @SerializedName("gists_url")
     @Expose
-    private String gistsUrl;
+    public String gistsUrl;
     @SerializedName("starred_url")
     @Expose
-    private String starredUrl;
+    public String starredUrl;
     @SerializedName("subscriptions_url")
     @Expose
-    private String subscriptionsUrl;
+    public String subscriptionsUrl;
     @SerializedName("organizations_url")
     @Expose
-    private String organizationsUrl;
+    public String organizationsUrl;
     @SerializedName("repos_url")
     @Expose
-    private String reposUrl;
+    public String reposUrl;
     @SerializedName("events_url")
     @Expose
-    private String eventsUrl;
+    public String eventsUrl;
     @SerializedName("received_events_url")
     @Expose
-    private String receivedEventsUrl;
+    public String receivedEventsUrl;
     @SerializedName("type")
     @Expose
-    private String type;
+    public String type;
     @SerializedName("site_admin")
     @Expose
-    private Boolean siteAdmin;
+    public Boolean siteAdmin;
 
     public String getLogin() {
         return login;

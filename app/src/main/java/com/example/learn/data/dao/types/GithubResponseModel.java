@@ -4,11 +4,19 @@ package com.example.learn.data.dao.types;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import io.requery.Entity;
+import io.requery.ForeignKey;
+import io.requery.Key;
+import io.requery.ManyToOne;
+import io.requery.OneToOne;
+
+@Entity
 public class GithubResponseModel {
 
     @SerializedName("id")
     @Expose
-    private Integer id;
+    @Key
+    public Integer id;
     @SerializedName("node_id")
     @Expose
     private String nodeId;
@@ -23,7 +31,9 @@ public class GithubResponseModel {
     private Boolean _private;
     @SerializedName("owner")
     @Expose
-    private Owner owner;
+    @ForeignKey
+    @ManyToOne
+    public OwnerEntity owner;
     @SerializedName("html_url")
     @Expose
     private String htmlUrl;
@@ -212,7 +222,9 @@ public class GithubResponseModel {
     private Integer openIssuesCount;
     @SerializedName("license")
     @Expose
-    private License license;
+    @OneToOne
+    @ForeignKey
+    public LicenseEntity license;
     @SerializedName("forks")
     @Expose
     private Integer forks;
@@ -266,11 +278,11 @@ public class GithubResponseModel {
         this._private = _private;
     }
 
-    public Owner getOwner() {
+    public OwnerEntity getOwner() {
         return owner;
     }
 
-    public void setOwner(Owner owner) {
+    public void setOwner(OwnerEntity owner) {
         this.owner = owner;
     }
 
@@ -770,11 +782,11 @@ public class GithubResponseModel {
         this.openIssuesCount = openIssuesCount;
     }
 
-    public License getLicense() {
+    public LicenseEntity getLicense() {
         return license;
     }
 
-    public void setLicense(License license) {
+    public void setLicense(LicenseEntity license) {
         this.license = license;
     }
 

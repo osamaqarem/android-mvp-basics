@@ -1,6 +1,7 @@
 package com.example.learn.data.service;
 
 import com.example.learn.data.dao.types.GithubResponseModel;
+import com.example.learn.data.dao.types.GithubResponseModelEntity;
 
 import java.util.List;
 
@@ -17,10 +18,15 @@ import retrofit2.http.Path;
 public interface ReposService {
 
     // The response model objects are generated using jsonschema2pojo.org
-    @GET("users/{user}/repos")
-    Call<List<GithubResponseModel>> listRepos(@Path("user") String user);
+//    @GET("users/{user}/repos")
+//    Call<List<GithubResponseModel>> listRepos(@Path("user") String user);
 
+    // RxJava
     @GET("users/{user}/repos")
     Observable<List<GithubResponseModel>> listReposRx(@Path("user") String user);
+
+    // RxJava + Entity model
+    @GET("users/{user}/repos")
+    Observable<List<GithubResponseModelEntity>> listReposRxEntity(@Path("user") String user);
 }
 

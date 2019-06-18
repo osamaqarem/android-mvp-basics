@@ -48,6 +48,15 @@ dependencies {
     // Retrofit RxJava Android
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.0'
 
+    // Requery
+    implementation 'io.requery:requery:1.6.1'
+    implementation 'io.requery:requery-android:1.6.1' // for android
+    annotationProcessor 'io.requery:requery-processor:1.6.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.2.41"
+
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+
+
     def thirtyinchVersion = '0.9.6'
     implementation "net.grandcentrix.thirtyinch:thirtyinch:$thirtyinchVersion"
     implementation "net.grandcentrix.thirtyinch:thirtyinch-rx2:$thirtyinchVersion"

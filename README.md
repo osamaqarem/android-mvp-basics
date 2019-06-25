@@ -20,4 +20,4 @@ Each commit will have more libraries and examples than the previous commit. Incr
 
 ## MVP
 
-<img src="https://i.imgur.com/b9WHECs.png" width="1000">
+<img src="https://i.imgur.com/uo8kIqh.png" width="1000">

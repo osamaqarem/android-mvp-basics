@@ -1,5 +1,5 @@
 # android-mvp-tutorial
-[Thirty-inch](https://github.com/grandcentrix/ThirtyInch), [Retrofit](https://github.com/square/retrofit), [GSON](https://github.com/google/gson), [RxJava](https://github.com/ReactiveX/RxAndroid) and [Requery](https://github.com/requery/requery) basic examples.
+MVP with [Thirty-inch](https://github.com/grandcentrix/ThirtyInch), [Retrofit](https://github.com/square/retrofit), [GSON](https://github.com/google/gson), [RxJava](https://github.com/ReactiveX/RxAndroid) and [Requery](https://github.com/requery/requery) basic examples.
 
 
 This repo contains ***'hello world'***-level examples of common android libraries with good project structure.

@@ -20,4 +20,6 @@ Each commit will have more libraries and examples than the previous commit. Incr
 
 ## MVP
 
-<img src="https://i.imgur.com/uo8kIqh.png" width="1000">
+- A graph of the relationship between a hypothetical LoginViewActivity, its interface, the BaseActivity (which every activity extends) and its interface. 
+
+<img src="https://i.imgur.com/NyGn90t.png" width="1000">
